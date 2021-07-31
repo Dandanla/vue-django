@@ -2,30 +2,23 @@
 <!--  frontend/src/App.vue  -->
 
 <template>
-
-    <BlogHeader/>
-
-    <ArticleList/>
-
-    <BlogFooter/>
-
+  <div id="q-app">
+    <router-view />
+  </div>
 </template>
 
 <script>
-    import BlogHeader from './components/BlogHeader.vue'
-    import BlogFooter from './components/BlogFooter.vue'
-    import ArticleList from './components/ArticleList.vue'
-
+import HomeVue from "./pages/Home.vue"
     export default {
-        name: 'App',
-        components: { BlogHeader, BlogFooter, ArticleList }
+        HomeVue,
+        name: 'App'
     }
 </script>
 
 <style>
-    #app {
+    /* #app {
         font-family: Georgia, Arial, sans-serif;
         margin-left: 40px;
         margin-right: 40px;
-    }
+    } */
 </style>

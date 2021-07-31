@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Quasar App11111
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
