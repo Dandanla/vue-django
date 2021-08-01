@@ -2,7 +2,7 @@
 
 <template>
     <div id="header">
-        <h1>My Drf-Vue Blog</h1>
+        <h1>博客</h1>
         <hr>
     </div>
 </template>

@@ -4,7 +4,7 @@
     <!--  br 标签给页脚留出位置  -->
     <br><br><br>
     <div id="footer">
-        <p>dusaiphoto.com</p>
+        <p>dandanla.cn</p>
     </div>
 </template>
 
