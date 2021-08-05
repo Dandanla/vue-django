@@ -8,3 +8,7 @@
 ```bash
 quasar dev
 ```
+
+```bash
+python manage.py runsever 
+```
