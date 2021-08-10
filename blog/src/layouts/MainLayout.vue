@@ -101,7 +101,7 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    // EssentialLink
+    EssentialLink
   },
 
   setup () {
