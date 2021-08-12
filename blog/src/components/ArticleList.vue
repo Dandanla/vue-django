@@ -1,18 +1,33 @@
 <template>
     <div v-for="article in info.results" v-bind:key="article.url" id="articles">
-        <div>
-            <span
-                  v-for="tag in article.tags" 
-                  v-bind:key="tag" 
-                  class="tag"
-            >
-                {{ tag }}
-            </span>
-        </div>
-        <div class="article-title">
-            {{ article.title }}
-        </div>
-        <div>{{ formatted_time(article.created) }}</div>
+        <q-card class="my-card">
+            <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" style=""></q-img>
+                <q-card-section>
+                    <div class="text-h6" 
+                    style="padding-left: 10px;"
+                    >
+                    {{ article.title }}
+                    </div>
+                    <div class="text-subtitle2"
+                    style="padding-left: 50px;"
+                    @click="111"
+                    >
+                    {{ formatted_time(article.created) }}
+                    </div>
+                <q-card-actions>
+                    <q-btn flat
+                    v-for="tag in article.tags" 
+                    v-bind:key="tag" 
+                    >
+                    {{ tag }}
+                    </q-btn>
+                    <q-btn flat>Read More</q-btn>
+                </q-card-actions>
+
+            </q-card-section>
+        </q-card>
+
+
     </div>
 
 </template>
@@ -45,24 +60,13 @@
 <!-- "scoped" 使样式仅在当前组件生效 -->
 <style scoped>
     #articles {
-        padding: 10px;
+        padding-left: 100px;
+        padding-bottom: 10px;
     }
 
-    .article-title {
-        font-size: large;
-        font-weight: bolder;
-        color: black;
-        text-decoration: none;
-        padding: 5px 0 5px 0;
+    .my-card {
+        width: 100%;
+        max-width: 250px;
     }
 
-    .tag {
-        padding: 2px 5px 2px 5px;
-        margin: 5px 5px 5px 0;
-        font-family: Georgia, Arial, sans-serif;
-        font-size: small;
-        background-color: #4e4e4e;
-        color: whitesmoke;
-        border-radius: 5px;
-    }
 </style>
