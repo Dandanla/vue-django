@@ -15,6 +15,12 @@ const routes = [
           name: "ArticleDetail",
           component: () => import('pages/ArticleDetail.vue'),
           props: true
+      },
+      {
+          path: "/Login",
+          name: "Login",
+          component: () => import('pages/Login.vue'),
+          props: true
       }
     ]
   },

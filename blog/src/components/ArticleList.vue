@@ -1,7 +1,7 @@
 <template>
     <div v-for="article in info.results" v-bind:key="article.url" id="articles">
         <q-card class="my-card">
-            <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" style=""></q-img>
+            <q-img src="http://www.dandanla.cn/wp-content/uploads/2020/07/image-1.png" style=""></q-img>
                 <q-card-section>
                     <div class="text-h6" 
                     style="padding-left: 10px;"
@@ -14,19 +14,20 @@
                     >
                     {{ formatted_time(article.created) }}
                     </div>
-                <q-card-actions>
+                <q-card-actions align="right">
                     <q-btn flat
                     v-for="tag in article.tags" 
                     v-bind:key="tag" 
                     >
                     {{ tag }}
                     </q-btn>
-                    <q-btn flat>Read More</q-btn>
+                    <q-btn flat color="primary">Read More</q-btn>
                 </q-card-actions>
-
             </q-card-section>
+
         </q-card>
 
+        <q-separator />
 
     </div>
 
@@ -60,13 +61,14 @@
 <!-- "scoped" 使样式仅在当前组件生效 -->
 <style scoped>
     #articles {
-        padding-left: 100px;
+        padding-left: 200px;
         padding-bottom: 10px;
     }
 
     .my-card {
         width: 100%;
-        max-width: 250px;
+        max-width: 350px;
     }
+
 
 </style>

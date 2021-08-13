@@ -1,7 +1,7 @@
 from django.contrib import admin
+from article.models import Article, Category, Tag, Avatar
 
-# 别忘了导入Article
-from .models import Article
-
-# 注册ArticlePost到admin中
 admin.site.register(Article)
+admin.site.register(Category)
+admin.site.register(Tag)
+admin.site.register(Avatar)
