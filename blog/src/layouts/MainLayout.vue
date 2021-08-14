@@ -4,8 +4,12 @@
       <q-toolbar class="GPL__toolbar" style="height: 64px">
 
         <q-toolbar-title v-if="$q.screen.gt.sm" shrink class="row items-center no-wrap">
-          <img src="https://cdn.quasar.dev/img/layout-gallery/logo-google.svg">
-          <span class="q-ml-sm">淡淡</span>
+          <q-btn outline rounded color="primary"
+          no-caps
+          v-on:click.prevent="signin"
+          >
+          Welcome，{{username}}
+          </q-btn>
         </q-toolbar-title>
 
         <q-space />
@@ -21,16 +25,16 @@
 
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round dense flat color="grey-8" icon="notifications">
-            <q-badge color="red" text-color="white" floating>
+            <!-- <q-badge color="red" text-color="white" floating>
               2
-            </q-badge>
-            <q-tooltip>Notifications</q-tooltip>
+            </q-badge> -->
+            <q-tooltip>{{notice}}</q-tooltip>
           </q-btn>
           <q-btn round flat>
             <q-avatar size="26px">
               <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
-            <q-tooltip>Account</q-tooltip>
+            <q-tooltip>{{username}}</q-tooltip>
           </q-btn>
         </div>
       </q-toolbar>
@@ -48,7 +52,14 @@
 <script>
 import { ref } from 'vue'
 export default {
-  name: 'GooglePhotosLayout',
+  name: 'Layout',
+  data: function () {
+    return {
+        searchText: '',
+        username: '',
+        hasLogin: false,
+    }
+},
   setup () {
     const leftDrawerOpen = ref(false)
     const search = ref('')
@@ -61,7 +72,49 @@ export default {
       search,
       storage,
     }
-  }
+  },
+
+        methods: {
+            signin() {
+                const that = this;
+                that.$router.push({name: 'Login'});
+            },
+        },
+        
+    mounted() {
+      const that = this;
+      const storage = localStorage;
+      // 过期时间
+      const expiredTime = Number(storage.getItem('expiredTime.myblog'));
+      // 当前时间
+      const current = (new Date()).getTime();
+      // 刷新令牌
+      const refreshToken = storage.getItem('refresh.myblog');
+      // 用户名
+      that.username = storage.getItem('username.myblog');
+
+      that.notice = "暂无消息"
+
+      // 初始 token 未过期
+      if (expiredTime > current) {
+
+          that.hasLogin = true;
+      }
+      // 初始 token 过期
+      // 如果有刷新令牌则申请新的token
+      else if (refreshToken !== null) {
+          that.username = "登陆信息过期，点击重新登陆"
+          storage.clear();
+          that.hasLogin = false;
+      }
+      // 无任何有效 token
+      else {
+          storage.clear();
+          that.hasLogin = false;
+          that.username = "点击登陆"
+          that.notice = "请先登陆"
+      }
+    }
 }
 </script>
 

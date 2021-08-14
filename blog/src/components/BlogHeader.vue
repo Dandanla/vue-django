@@ -2,7 +2,8 @@
 
 <template>
     <div id="header">
-        <h1>博客</h1>
+        <h4>淡淡的博客</h4>
+        <a>淡淡的博客</a>
         <hr>
     </div>
 </template>
@@ -16,6 +17,6 @@
 <style scoped>
     #header {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 </style>

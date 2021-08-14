@@ -110,13 +110,30 @@
                             .then(function (response) {
                                 storage.setItem('isSuperuser.myblog', response.data.is_superuser);
                                 // 路由跳转
+                                alert('用户登陆成功！');
                                 that.$router.push({name: 'Home'});
                             });
                             // .catch(...)
                     })
                 // .catch(...)
             },
-        }
+            },
+        mounted() {
+            const that = this;
+            const storage = localStorage;
+            // 过期时间
+            const expiredTime = Number(storage.getItem('expiredTime.myblog'));
+            // 当前时间
+            const current = (new Date()).getTime();
+            // 刷新令牌
+
+            // 初始 token 未过期
+            if (expiredTime > current) {
+                alert('用户已登陆！');
+                that.$router.push({name: 'Home'});
+
+            }
+            },
     }
 </script>
 

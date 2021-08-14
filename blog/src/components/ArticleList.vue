@@ -1,34 +1,43 @@
 <template>
-    <div v-for="article in info.results" v-bind:key="article.url" id="articles">
-        <q-card class="my-card">
-            <q-img src="http://www.dandanla.cn/wp-content/uploads/2020/07/image-1.png" style=""></q-img>
-                <q-card-section>
-                    <div class="text-h6" 
-                    style="padding-left: 10px;"
-                    >
-                    {{ article.title }}
-                    </div>
-                    <div class="text-subtitle2"
-                    style="padding-left: 50px;"
-                    @click="111"
-                    >
-                    {{ formatted_time(article.created) }}
-                    </div>
-                <q-card-actions align="right">
-                    <q-btn flat
-                    v-for="tag in article.tags" 
-                    v-bind:key="tag" 
-                    >
-                    {{ tag }}
-                    </q-btn>
-                    <q-btn flat color="primary">Read More</q-btn>
-                </q-card-actions>
-            </q-card-section>
+    <div class="row" justify-evenly>
+        <div class="col-6">
+            <div v-for="article in info.results" v-bind:key="article.url" id="articles">
+                <q-card class="my-card">
+                    <q-parallax src="https://cdn.quasar.dev/img/parallax1.jpg" style="" :height="200" />
+                        <q-card-section>
+                            <div class="text-h6" 
+                            align="left"
+                            >
+                            {{ article.title }}
+                            </div>
+                            <div class="text-subtitle2"
+                            v-on:click.prevent=""
+                            }
+                            align="left"
+                            >
+                            {{ formatted_time(article.created) }}
+                            </div>
+                        <q-card-actions align="right">
+                            <q-btn flat
+                            v-for="tag in article.tags" 
+                            v-bind:key="tag" 
+                            >
+                            {{ tag }}
+                            </q-btn>
+                            <q-btn flat color="primary">Read More</q-btn>
+                        </q-card-actions>
+                    </q-card-section>
 
-        </q-card>
+                </q-card>
 
-        <q-separator />
+                <q-separator />
 
+            </div>
+        </div>
+
+        <div class="col-4">
+        友链
+        </div>
     </div>
 
 </template>
@@ -61,13 +70,16 @@
 <!-- "scoped" 使样式仅在当前组件生效 -->
 <style scoped>
     #articles {
-        padding-left: 200px;
+
         padding-bottom: 10px;
+    }
+    .col-6 {
+        margin: 0 auto;
     }
 
     .my-card {
         width: 100%;
-        max-width: 350px;
+        max-width: 500px;
     }
 
 
