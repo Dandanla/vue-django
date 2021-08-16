@@ -74,12 +74,12 @@ export default {
     }
   },
 
-        methods: {
-            signin() {
-                const that = this;
-                that.$router.push({name: 'Login'});
-            },
-        },
+    methods: {
+      signin() {
+          const that = this;
+          that.$router.push({name: 'Login'});
+      },
+  },
         
     mounted() {
       const that = this;

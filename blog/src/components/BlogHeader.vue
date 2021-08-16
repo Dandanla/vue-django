@@ -2,8 +2,8 @@
 
 <template>
     <div id="header">
-        <h4>淡淡的博客</h4>
-        <a>淡淡的博客</a>
+        <div class="text-h4" style="margin:20px">淡淡的博客</div>
+        <div class="text-subtitle2"  style="margin:20px">一斩风月人不留，不问岁月任风歌</div>
         <hr>
     </div>
 </template>
@@ -16,7 +16,8 @@
 
 <style scoped>
     #header {
+        margin: 0;
         text-align: center;
-        margin-top: 10px;
     }
+
 </style>

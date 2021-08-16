@@ -3,7 +3,7 @@
         <div class="col-6">
             <div v-for="article in info.results" v-bind:key="article.url" id="articles">
                 <q-card class="my-card">
-                    <q-parallax src="https://cdn.quasar.dev/img/parallax1.jpg" style="" :height="200" />
+                    <q-parallax v-bind:src="article.avatar.content" style="" :height="200" />
                         <q-card-section>
                             <div class="text-h6" 
                             align="left"
@@ -11,8 +11,6 @@
                             {{ article.title }}
                             </div>
                             <div class="text-subtitle2"
-                            v-on:click.prevent=""
-                            }
                             align="left"
                             >
                             {{ formatted_time(article.created) }}
@@ -24,7 +22,9 @@
                             >
                             {{ tag }}
                             </q-btn>
-                            <q-btn flat color="primary">Read More</q-btn>
+                            <q-btn flat color="primary"
+                            v-on:click.prevent="Read(article.id)"
+                            >Read More</q-btn>
                         </q-card-actions>
                     </q-card-section>
 
@@ -36,7 +36,10 @@
         </div>
 
         <div class="col-4">
-        友链
+            <div class="text-h6" style="margin:10px">友链</div>
+            <div class="text-h7" style="margin:10px">淡淡</div>
+            <div class="text-h7" style="margin:10px">李恒道</div>
+            <div class="text-h7" style="margin:10px">南国旧梦</div>
         </div>
     </div>
 
@@ -61,8 +64,11 @@
             formatted_time: function (iso_date_string) {
                 const date = new Date(iso_date_string);
                 return date.toLocaleDateString()
+            },
+            Read :function (iso_date_string) {
+                this.$router.push({path:"/article/" + iso_date_string});
             }
-        }
+        },
     }
 
 </script>
@@ -75,11 +81,12 @@
     }
     .col-6 {
         margin: 0 auto;
+        padding-top: 20px;
     }
 
     .my-card {
         width: 100%;
-        max-width: 500px;
+        max-width: 600px;
     }
 
 
