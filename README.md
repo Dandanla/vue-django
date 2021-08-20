@@ -1,14 +1,19 @@
-# vue-django
+# vue(Quasar)-django
 
-## #  个人博客系统，技术栈采用Vue+Django
-## #  框架采用Quasar
-## #  2021年7月15启动
-## #  2021年7月21完成后端
+## Install
+```bash
+yarn
+```
 
+### QuAsar
 ```bash
 quasar dev
 ```
 
+### Django
 ```bash
 python manage.py runsever 
 ```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
