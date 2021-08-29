@@ -3,8 +3,8 @@
 <template>
     <!--  br 标签给页脚留出位置  -->
     <br><br><br>
-    <div id="footer">
-        <p>dandanla.cn</p>
+    <div id="footer" class="text-subtitle2">
+        <p>备案号@dandanla.cn</p>
     </div>
 </template>
 
@@ -23,6 +23,5 @@
         width: 100%;
         background: whitesmoke;
         text-align: center;
-        font-weight: bold;
     }
 </style>

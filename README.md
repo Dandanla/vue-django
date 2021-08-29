@@ -1,6 +1,6 @@
-# vue(Quasar)-django
+## vue(Quasar)-django
 
-## Install
+### Install
 ```bash
 yarn
 ```

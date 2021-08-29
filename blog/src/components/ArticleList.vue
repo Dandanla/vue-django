@@ -80,7 +80,8 @@
         padding-bottom: 10px;
     }
     .col-6 {
-        margin: 0 auto;
+        margin-left: 250px;
+        /* margin: 0 auto; */
         padding-top: 20px;
     }
 

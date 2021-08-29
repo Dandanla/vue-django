@@ -5,15 +5,32 @@
 
     <div v-if="article !== null" class="grid-container">
         <div>
-            <h1 id="title">{{ article.title }}</h1>
-            <p id="subtitle">
-                本文由 {{ article.author.username }} 发布于 {{ formatted_time(article.created) }}
-            </p>
-            <div v-html="article.body_html" class="article-body"></div>
-        </div>
-        <div>
-            <h3>目录</h3>
-            <div v-html="article.toc_html" class="toc"></div>
+            <q-card class="my-card" flat bordered>
+            <q-item>
+                <q-item-section avatar>
+                <q-avatar>
+                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                </q-avatar>
+                </q-item-section>
+
+                <q-item-section>
+                <q-item-label>{{article.title}}</q-item-label>
+                <q-item-label caption>
+                    本文由 {{ article.author.username }} 发布于 {{ formatted_time(article.created) }}
+                </q-item-label>
+                </q-item-section>
+            </q-item>
+
+            <q-separator />
+
+            <q-card-section horizontal>
+
+                <q-separator vertical />
+
+                <q-card-section v-html="article.body_html">
+                </q-card-section>
+            </q-card-section>
+            </q-card>
         </div>
     </div>
 
@@ -53,13 +70,15 @@
 <style scoped>
     .grid-container {
         display: grid;
-        grid-template-columns: 3fr 1fr;
     }
 
 
-    #title {
-        text-align: center;
-        font-size: x-large;
+    .my-card{
+        width: 100%;
+        height: 100%;
+        max-width: 1000px;
+        max-height: 1000px;
+        margin: 0 auto;
     }
 
     #subtitle {
