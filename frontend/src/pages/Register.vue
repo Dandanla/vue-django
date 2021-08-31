@@ -1,10 +1,8 @@
 <template>
 
-    <BlogHeader/>
-
     <div id="grid">
         <div id="signup">
-            <h3>注册账号</h3>
+            <div class="text-h3">注册账号</div>
             <form>
                 <div class="form-elem">
                     <span>账号：</span>
@@ -30,13 +28,12 @@
 
 <script>
     import axios from 'axios';
-    import BlogHeader from '../components/BlogHeader.vue'
     import BlogFooter from '../components/BlogFooter.vue'
 
 
     export default {
         name: 'Login',
-        components: {BlogHeader, BlogFooter},
+        components: {BlogFooter},
         data: function () {
             return {
                 signupName: '',
@@ -89,9 +86,11 @@
 <style scoped>
 
     #grid {
+        padding-top: 200px;
         display: grid;
         margin: 0 auto;
     }
+
 
     #signup {
         text-align: center;
