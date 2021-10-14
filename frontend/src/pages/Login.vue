@@ -1,29 +1,50 @@
 <template>
+  <q-layout>
+    <q-page-container>
+      <q-page class="flex bg-image flex-center">
+        <q-card v-bind:style="$q.screen.lt.sm?{'width': '80%'}:{'width':'30%'}">
+          <q-card-section>
+            <q-avatar size="100px" class="absolute-center shadow-10">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+            </q-avatar>
+          </q-card-section>
+          <q-card-section>
+            <div class="text-center q-pt-lg">
+              <div class="col text-h6 ellipsis">
+                登录界面
+              </div>
+            </div>
+          </q-card-section>
+          <q-card-section>
+            <q-form
+              class="q-gutter-md"
+            >
+              <q-input
+                filled
+                v-model="signinName"
+                label="Username"
+                lazy-rules
+              />
 
-    <div id="grid">
-        <div id="signin">
-            <div class="text-h3">登录账号</div>
-            <form>
-                <div class="form-elem">
-                    <span>账号：</span>
-                    <input v-model="signinName" type="text" placeholder="输入用户名">
-                </div>
+              <q-input
+                type="password"
+                filled
+                v-model="signinPwd"
+                label="Password"
+                lazy-rules
 
-                <div class="form-elem">
-                    <span>密码：</span>
-                    <input v-model="signinPwd" type="password" placeholder="输入密码">
-                </div>
+              />
 
-                <div class="form-elem">
-                    <button v-on:click.prevent="signin">登录</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-    <BlogFooter/>
-
+              <div>
+                <q-btn label="Login" v-on:click.prevent="signin" type="button" color="primary"/>
+              </div>
+            </q-form>
+          </q-card-section>
+        </q-card>
+      </q-page>
+    </q-page-container>
+  </q-layout>
+  <BlogFooter/>
 </template>
 
 <script>
