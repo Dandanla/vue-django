@@ -5,13 +5,15 @@
 yarn
 ```
 
-### QuAsar
+### Frontend
 ```bash
+cd frontend
 quasar dev
 ```
 
-### Django
+### Fackend
 ```bash
+cd backend
 python manage.py runsever 
 ```
 
