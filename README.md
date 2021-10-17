@@ -1,4 +1,4 @@
-## vue(Quasar)-django
+## Blog by Vue and Django
 
 ### Install
 ```bash
